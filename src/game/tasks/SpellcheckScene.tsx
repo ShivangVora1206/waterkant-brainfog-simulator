@@ -12,9 +12,9 @@ import type { SoundKey } from '../../audio/soundCatalog'
 const phoneKeys: SoundKey[] = ['phoneRingShort', 'phoneRingLong']
 
 const words = [
-  { wrong: 'recieve', correct: 'receive' },
-  { wrong: 'acommodate', correct: 'accommodate' },
-  { wrong: 'occured', correct: 'occurred' }
+  { wrong: 'wwaterkant', correct: 'waterkant' },
+  { wrong: 'brianfog', correct: 'brainfog' },
+  { wrong: 'kill', correct: 'kiel' }
 ]
 
 type SpellcheckSceneProps = {
