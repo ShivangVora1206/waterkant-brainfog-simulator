@@ -1,0 +1,6 @@
+node_modules
+package-lock.json
+tickets.md
+instruction.md 
+plan*.md
+dist

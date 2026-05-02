@@ -1,0 +1,112 @@
+:root {
+  --bg: #f5f2ed;
+  --ink: #1a1a1a;
+  --accent: #2f5e4e;
+  --muted: #6a6a6a;
+  --panel: #ffffff;
+  --danger: #c0392b;
+  --ok: #2d8a4b;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root, .app-root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", "Segoe UI", Tahoma, sans-serif;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+.game-root {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.scene {
+  width: min(900px, 92vw);
+  background: var(--panel);
+  border: 1px solid #e0ddd7;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.scene h1 {
+  margin-top: 0;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.button.secondary {
+  background: #343a40;
+}
+
+.text-input {
+  padding: 10px 12px;
+  border: 1px solid #cfcac2;
+  border-radius: 6px;
+  min-width: 220px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #e0ddd7;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.table th {
+  background: #f1eee8;
+}
+
+.status {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.status.error { color: var(--danger); }
+.status.ok { color: var(--ok); }
+
+.audio-gate {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: #fff7e6;
+  border: 1px solid #f0d6a8;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  z-index: 20;
+}
+
+.blur-target {
+  will-change: filter;
+  transition: filter 120ms ease;
+}
