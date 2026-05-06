@@ -40,9 +40,21 @@ export default function SpreadsheetScene({ variant, onComplete }: SpreadsheetSce
   const [status, setStatus] = useState('Füllen Sie die Summen aus und senden Sie das Formular ab.')
   const [error, setError] = useState('')
   const isVariant2 = variant === 2
+  const [distractionsEnabled, setDistractionsEnabled] = useState(isVariant2)
+
+  useEffect(() => {
+    if(isVariant2){
+      setDistractionsEnabled(true)
+      return
+    }
+    setDistractionsEnabled(false)
+    const id = window.setTimeout(() => setDistractionsEnabled(true), 30000)
+    return () => window.clearTimeout(id)
+  }, [isVariant2])
+
   const blurOptions = isVariant2 ? timings.spreadsheet.blurFast : timings.spreadsheet.blur
   const globalBlur = useBlurLoop({
-    enabled: true,
+    enabled: distractionsEnabled,
     minDelayMs: blurOptions.minDelayMs,
     maxDelayMs: blurOptions.maxDelayMs,
     minDurationMs: blurOptions.minDurationMs,
@@ -51,7 +63,7 @@ export default function SpreadsheetScene({ variant, onComplete }: SpreadsheetSce
     maxBlur: blurOptions.maxBlur
   })
   const tableBlur = useBlurLoop({
-    enabled: true,
+    enabled: distractionsEnabled,
     minDelayMs: Math.max(400, blurOptions.minDelayMs - 300),
     maxDelayMs: blurOptions.maxDelayMs,
     minDurationMs: blurOptions.minDurationMs,
@@ -60,7 +72,7 @@ export default function SpreadsheetScene({ variant, onComplete }: SpreadsheetSce
     maxBlur: blurOptions.maxBlur + (isVariant2 ? 2 : 1)
   })
 
-  useNoiseLoop(true, {
+  useNoiseLoop(distractionsEnabled, {
     keys: doorKnockKeys,
     minMs: isVariant2 ? timings.spreadsheet.doorKnockFast.minMs : timings.spreadsheet.doorKnock.minMs,
     maxMs: isVariant2 ? timings.spreadsheet.doorKnockFast.maxMs : timings.spreadsheet.doorKnock.maxMs,

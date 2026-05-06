@@ -7,8 +7,25 @@ export default function IntroScene(){
   const nextScene = useGameStore((s) => s.nextScene)
 
   return (
-    <Panel title="Brain Fog Simulator">
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, maxWidth: 1000, margin: '0 auto' }}>
+    <>
+      <div
+        aria-hidden
+        style={{
+          position: 'fixed',
+          top: 16,
+          left: 16,
+          zIndex: 30
+        }}
+      >
+        <img
+          src="/assets/FZA_Logo_Web.svg"
+          alt="FZA Logo"
+          style={{ width: 180, height: 'auto', display: 'block' }}
+        />
+      </div>
+      <Panel>
+        <h1 style={{ marginTop: 0 }}>Brain Fog Simulator</h1>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, maxWidth: 1000, margin: '0 auto' }}>
         {/* German side */}
         <div>
           <p style={{ fontSize: 16, lineHeight: 1.6, marginBottom: 20 }}>
@@ -37,11 +54,12 @@ export default function IntroScene(){
             Are you ready to experience the fog?
           </p>
         </div>
-      </div>
-      
-      <div style={{ textAlign: 'center', marginTop: 30 }}>
-        <Button onClick={nextScene}>Los Geht's</Button>
-      </div>
-    </Panel>
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: 30 }}>
+          <Button onClick={nextScene}>Los Geht's</Button>
+        </div>
+      </Panel>
+    </>
   )
 }
