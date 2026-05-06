@@ -48,7 +48,7 @@ export default function SpreadsheetScene({ variant, onComplete }: SpreadsheetSce
       return
     }
     setDistractionsEnabled(false)
-    const id = window.setTimeout(() => setDistractionsEnabled(true), 30000)
+    const id = window.setTimeout(() => setDistractionsEnabled(true), 15000)
     return () => window.clearTimeout(id)
   }, [isVariant2])
 
