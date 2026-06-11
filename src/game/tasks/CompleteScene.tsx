@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import Panel from '../../components/Panel'
+import Button from '../../components/Button'
 import noiseScheduler from '../../audio/noiseSchedulerSingleton'
 import audioManager from '../../audio/audioManagerSingleton'
 
@@ -23,6 +24,10 @@ export default function CompleteScene(){
     <Panel title="Erledigte Aufgaben">
       <p>Alle Aufgaben erledigt. Atme tief durch.</p>
       <p>All tasks finished. Take a breath.</p>
+      
+      <div style={{ marginTop: 40, textAlign: 'center' }}>
+        <Button onClick={() => window.location.reload()}>Neues Spiel / New Game</Button>
+      </div>
     </Panel>
   )
 }
